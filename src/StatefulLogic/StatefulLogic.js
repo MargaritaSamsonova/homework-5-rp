@@ -15,4 +15,16 @@ import { getLoggedInUser } from '../utils';
 */
 
 export const WithTooltip = ({ children }) => {
+    const [isShowTooltip, setIsShowTooltip] = useState(false);
+
+    const handlClick = () => {
+        setIsShowTooltip(!isShowTooltip);
+    }
+
+    return (
+        <div>
+            {isShowTooltip && <div data-testid="tooltip">Hello, i'm Tooltip</div>}
+            {children(handlClick)}
+        </div>
+    )
 };
